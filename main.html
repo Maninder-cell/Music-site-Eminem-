@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Music Window</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div id="full_body">
+        <header>
+            <div id="main_head">
+                <h1>Lose Yourself</h1>
+                <h4>Eminem</h4>
+            </div>
+        </header>
+
+        <div id="main_body">
+            <div id="image_sec">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ44aFeCrYE-XRMs2_g84dqVsYH7sx_-vVdpjVt06PFyFcXinV9RQ&s" alt="Eminem Image">
+            </div>
+            <div id="songs_list" class="change">
+                <div num=0 sname="Lose Yourself" fav=0 class="customize">
+                    <h3>1. Lose Yourself</h3>
+                    <h5>&emsp;&ensp;Eminem</h5>
+                </div>
+                <div num=1 sname="Love The Way You Lie" fav=0 class="customize">
+                    <h3>2. Love The Way You Lie</h3>
+                    <h5>&emsp;&ensp;Eminem</h5>
+                </div>
+                <div num=2 sname="Beautiful" fav=0 class="customize">
+                    <h3>3. Beautiful</h3>
+                    <h5>&emsp;&ensp;Eminem</h5>
+                </div>
+                <div num=3 sname="Space Bound" fav=0 class="customize">
+                    <h3>4. Space Bound</h3>
+                    <h5>&emsp;&ensp;Eminem</h5>
+                </div>
+                <div num=4 sname="Cleaning Out Of My Closest" fav=0 class="customize">
+                    <h3>5. Cleaning Out Of My Closest</h3>
+                    <h5>&emsp;&ensp;Eminem</h5>
+                </div>
+                <div num=5 sname="When I'm Gone" fav=0 class="customize">
+                    <h3>6. When I'm Gone</h3>
+                    <h5>&emsp;&ensp;Eminem</h5>
+                </div>
+                <div num=6 sname="Lighters" fav=0 class="customize">
+                    <h3>7. Lighters</h3>
+                    <h5>&emsp;&ensp;Eminem</h5>
+                </div>
+                <div num=7 sname="I Need A Doctor" fav=0 class="customize">
+                    <h3>8. I Need A Doctor</h3>
+                    <h5>&emsp;&ensp;Eminem</h5>
+                </div>
+                <div num=8 sname="Aeroplanes" fav=0 class="customize">
+                    <h3>9. Aeroplanes</h3>
+                    <h5>&emsp;&ensp;Eminem</h5>
+                </div>
+                <div num=9 sname="Sing For The Moment" fav=0 class="customize">
+                    <h3>10. Sing For The Moment</h3>
+                    <h5>&emsp;&ensp;Eminem</h5>
+                </div>
+            </div><br>
+            <button onclick="Songs()" id="slide_button">Similar songs ></button><br>
+            <div id="first_run" class="ok">
+                <img onclick="run_first_song()" src="https://image.flaticon.com/icons/svg/1073/1073695.svg" alt="">
+            </div>
+            <div id="remove" class="change">
+                <div id="control_sec">
+                    <!--https://docs.google.com/uc?export=download&id=1eHmqwnRejlKJmgUmE5aDRqdAl-DzYgJt-->
+                    <div id="seek_bar">
+                        <div id="filled"><div id="runner"></div></div>
+                    </div>
+                    <!--https://image.flaticon.com/icons/svg/727/727245.svg-->
+                    <div id="buttons">
+                        <button onclick="prev()" class="small"><img src="https://image.flaticon.com/icons/svg/727/727246.svg" alt="Previous"></button>
+                        <button onclick="play_pause_song()" id="play"><img src="https://image.flaticon.com/icons/svg/254/254432.svg" alt="Play"></button>
+                        <button onclick="next()" class="small"><img src="https://image.flaticon.com/icons/svg/727/727241.svg" alt="Next"></button>
+                    </div>
+                </div>   
+            </div>
+        </div>
+
+        <footer>
+            <div id="main_footer">
+                <div id="message">
+                    <img src="https://image.flaticon.com/icons/svg/1612/1612636.svg" alt="Hand_Image"><br>
+                    <b>Prees To Play</b>
+                </div>
+                <div id="end_footer" class="change">
+                    <img id="heart" onclick="favo()" src="https://image.flaticon.com/icons/svg/1077/1077035.svg" alt="border_Heart">
+                    <a id="link_download" onclick="download_song()" download><img id="down" src="https://image.flaticon.com/icons/svg/2223/2223613.svg" alt="Download"></a>
+                    <img id="jojo" move onclick="same_song_or_repeat()" src="https://image.flaticon.com/icons/svg/19/19819.svg" alt="next_song_play_auto">
+                </div>
+                <!--a href="https://drive.google.com/uc?export=download&id=1yRyTkewIb8DC1tvBcZq-oIkYC_-gJZV4">Download</!--a>-->
+            </div>
+        </footer>
+
+    </div>
+    <script>
+        var song_download_links = ["https://docs.google.com/uc?export=download&id=1Dm2GwczU3MqRVAgFLjRjBOIifqhZigY0",
+                              "https://docs.google.com/uc?export=download&id=1DvpuXLbp-5sO-BuiL8_9BiYHNN0iNiJa",
+                              "https://docs.google.com/uc?export=download&id=10hsjnlE9Z1feL8MwO9JHrvVBqOG03twQ",
+                              "https://docs.google.com/uc?export=download&id=1yY2Q5j02TY9C61FETxbRTp5R6SkEPkXD",
+                              "https://docs.google.com/uc?export=download&id=1SsToqlYnuTmkBYhDfTur3VSuKtA-mg_2",
+                              "https://docs.google.com/uc?export=download&id=1yftkaPZFAPyGb90Vzv9226XDBB3-QPpn",
+                              "https://docs.google.com/uc?export=download&id=1Q1E93LrTBDxFRdFYDX4LPZwGM-ax-b6t",
+                              "https://docs.google.com/uc?export=download&id=1yRyTkewIb8DC1tvBcZq-oIkYC_-gJZV4",
+                              "https://docs.google.com/uc?export=download&id=11KqdS56NmIZIjx469Hqf1zRjyxKHMyj1",
+                              "https://docs.google.com/uc?export=download&id=1n7aez2ETdrYvjNVgLwjhLt4e77Z_4OBX"]
+                              
+        var c = document.querySelectorAll(".customize");
+        var shuf_play = 1;
+
+        function Songs(){
+            document.getElementById("songs_list").classList.toggle("change");
+            document.getElementById("image_sec").classList.toggle("change");
+            var x=document.getElementById("slide_button").innerText;
+            if (x=="Similar songs >"){
+                document.getElementById("slide_button").innerText="Back >"
+            }
+            else{
+                document.getElementById("slide_button").innerText="Similar songs >"
+            }
+        }
+
+        var image=document.querySelector("#play img");
+        var z=document.getElementById("filled");
+        //"https://docs.google.com/uc?export=download&id=1eHmqwnRejlKJmgUmE5aDRqdAl-DzYgJt"
+        var songs=song_download_links;
+        
+        var music = new Audio();
+        var current_song = 0;
+
+        function run_first_song(){
+            var c=document.getElementById("first_run");
+            var rem=document.getElementById("end_footer")
+            c.classList.add("change");
+            var b=document.getElementById("remove");
+            var mes=document.getElementById("message");
+            mes.classList.add("change");
+            c.removeAttribute("id");
+            b.classList.remove("change");
+            rem.classList.remove("change");
+            play_song();
+        }
+        
+        //window.onload = play_song;
+
+        function play_song(){
+            var c=document.getElementsByClassName("ok");
+            if (c[0].classList.contains("change")){
+                music.src = songs[current_song];
+                music.play();
+            }
+        }
+
+        function play_pause_song(){
+            if (music.paused){
+                music.play();
+                image.setAttribute("src","https://image.flaticon.com/icons/svg/254/254432.svg");
+            }
+            else{
+                music.pause();
+                image.setAttribute("src","https://image.flaticon.com/icons/svg/727/727245.svg");
+            }
+        }
+        
+        music.addEventListener("timeupdate",function(){
+            var position = music.currentTime/music.duration;
+            z.style.width = position*100+"%";
+            if (z.style.width == "100%"){
+                z.style.width = "0%";
+                if (shuf_play == 0){
+                    play_song();
+                }
+                else{
+                    next();
+                }
+            }
+        });
+
+        function update(){
+            var check = document.querySelectorAll(".customize");
+            for (var i=0; i<check.length; i++){
+                if (check[i].getAttribute("num") == current_song){
+                    document.querySelector("h1").innerHTML = check[i].getAttribute("sname");
+                }
+            } 
+        }
+
+        function next(){
+            if (current_song == 9){
+                current_song = -1;
+            }
+            image.setAttribute("src","https://image.flaticon.com/icons/svg/254/254432.svg");
+            current_song++;
+            play_song();
+            check_fav();
+            update();
+        }
+
+        function prev(){
+            if (current_song == 0){
+                current_song = 10;
+            }
+            image.setAttribute("src","https://image.flaticon.com/icons/svg/254/254432.svg");
+            current_song--;
+            play_song();
+            check_fav();
+            update();
+        }
+
+
+        for (var i=0; i<c.length; i++){
+            c[i].addEventListener("click",function(){
+                var song_number = this.getAttribute("num");
+                document.querySelector("h1").innerHTML = this.getAttribute("sname");
+                current_song = song_number;
+                play_song();
+                image.setAttribute("src","https://image.flaticon.com/icons/svg/254/254432.svg");
+                check_fav();
+                Songs();
+            });
+        }
+
+
+        function favo(){
+            for (var i=0; i<c.length; i++){
+                if (current_song == c[i].getAttribute("num")){
+                    if (c[i].getAttribute("fav") == 0){
+                        c[i].setAttribute("fav",1)
+                    }
+                    else{
+                        c[i].setAttribute("fav",0)
+                    }
+                }
+            }
+            check_fav();
+        }
+
+        function check_fav(){
+            for (var i=0; i<c.length; i++){
+                if (current_song == c[i].getAttribute("num")){
+                    if (c[i].getAttribute("fav") == 1){
+                        document.getElementById("heart").setAttribute("src","https://image.flaticon.com/icons/svg/1076/1076984.svg");
+                    }
+                    else{
+                        document.getElementById("heart").setAttribute("src","https://image.flaticon.com/icons/svg/1077/1077035.svg");
+                    }
+                }
+            }
+        }
+
+        function same_song_or_repeat(){
+            var l=document.getElementById("jojo");
+            l.toggleAttribute("move");
+            if (l.hasAttribute("move")){
+                shuf_play = 1;
+                l.setAttribute("src","https://image.flaticon.com/icons/svg/19/19819.svg");
+            }
+            else{
+                l.setAttribute("src","https://image.flaticon.com/icons/svg/1635/1635618.svg");
+                shuf_play = 0;
+            }
+        }
+
+        function download_song(){
+            var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            if (isMobile) {
+                alert("Sorry You can't download songs because you are on mobile.For download songs you should be on laptop or pc.");
+            } 
+            else {
+                   document.getElementById("link_download").setAttribute("href",song_download_links[current_song]);
+            }
+        }
+
+    </script>
+</body>
+</html>
